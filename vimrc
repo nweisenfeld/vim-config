@@ -1,7 +1,7 @@
 set nocompatible 
 set ruler
 syntax enable
-source ~/.vim-vundle
+source ~/.vim/vim-vundle
 set background=dark
 colorscheme wombat256mod
 " david compatibility

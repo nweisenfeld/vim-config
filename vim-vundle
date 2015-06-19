@@ -23,7 +23,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/OmniCppComplete'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-Plugin 'scrooloose/syntastic'
+let g:easytags_async=1		" enable asynchronous tag updates for easytags
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 
 " The following are examples of different formats supported.

@@ -11,9 +11,19 @@ augroup filetypedetect
 	au! BufRead,BufNewFile *.mro		setfiletype martian
 augroup END
 autocmd FileType martian set ts=4 | set sw=4 | set expandtab
-augroup prewrites
-	autocmd!
-	autocmd BufWritePre,FileWritePre *.mro :%s/\s\+$//e
-	autocmd BufWritePre,FileWritePre *.cc :%s/\s\+$//e
-	autocmd BufWritePre,FileWritePre *.h :%s/\s\+$//e
-augroup END
+"augroup prewrites
+"	autocmd!
+"	autocmd BufWritePre,FileWritePre *.mro :%s/\s\+$//e
+"	autocmd BufWritePre,FileWritePre *.cc :%s/\s\+$//e
+"	autocmd BufWritePre,FileWritePre *.h :%s/\s\+$//e
+"augroup END
+
+" FixWhite
+command FW :%s/\s\+$//e
+command HW :/\s\+$
+
+set statusline+=%F
+
+set sw=4 ts=4 expandtab
+
+source ~/.vim/a.vim

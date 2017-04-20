@@ -12,20 +12,72 @@ Plugin 'gmarik/Vundle.vim'
 
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-
 Plugin 'tpope/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 Plugin 'davidoc/taskpaper.vim'
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_root_markers=['Makefile']
+
 Plugin 'vim-scripts/OmniCppComplete'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 let g:easytags_async=1		" enable asynchronous tag updates for easytags
-"Plugin 'scrooloose/syntastic'
+"set cpoptions+=d		" needed so that the tags options below are relative to the cwd for vim, rather than the file directory
+"set tags=/mnt/home/neil/.vimtags,./tags     " dynamic files below ensures that the first item repo/.git/tags is used
+let g:easytags_dynamic_files=1
+Plugin 'vim-scripts/taglist.vim'
+let Tlist_Use_Right_Window = 1
+let Tlist_Show_One_File = 1
+Plugin 'scrooloose/syntastic'
+
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["cpp"],
+    \ "passive_filetypes": ["python"] }
+
+" below settings for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_include_dirs = ['src','lib/assembly/src']
+let g:syntastic_cpp_include_dirs = ['src','lib/assembly/src']
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wno-deprecated'
+"let g:syntastic_debug = 1
+"let g:syntastic_c_compiler_options = '-std=c++11 -Isrc/'
+
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'tpope/vim-sleuth'       " infers tab settings
+
+Plugin 'vim-airline/vim-airline'
+set laststatus=2    " always show airline
+Plugin 'vim-airline/vim-airline-themes'
+
+let g:airline_section_x = 'ts %{&tabstop} sw %{&shiftwidth}'
+
+
+Plugin 'MattesGroeger/vim-bookmarks'
+let g:bookmark_sign = '>>'
+let g:bookmark_annotation_sign = '##'
+let g:bookmark_location_list = 1
+let g:bookmark_disable_ctrlp = 1
+nmap  bjj           <Plug>BookmarkMoveDown
+nmap  bkk           <Plug>BookmarkMoveUp
+nmap  bx            <Plug>BookmarkClearAll
+nmap  bc            <Plug>BookmarkClear
+nmap  bp            <Plug>BookmarkPrev
+nmap  bn            <Plug>BookmarkNext
+nmap  bi            <Plug>BookmarkAnnotate
+nmap  bm            <Plug>BookmarkToggle
+nmap  ba            <Plug>BookmarkShowAll
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

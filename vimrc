@@ -1,3 +1,4 @@
+set encoding=utf-8
 set nocompatible 
 set ruler
 syntax enable
@@ -5,7 +6,7 @@ source ~/.vim/vim-vundle
 set background=dark
 colorscheme wombat256mod
 " dj compatibility ;-)
-autocmd FileType cpp set ts=5 | set sw=5 | set expandtab
+autocmd FileType cpp set ts=5 | set sw=5 | set expandtab | set makeprg=crdMake
 autocmd FileType python set ts=4 | set sw=4 | set expandtab
 augroup filetypedetect
 	au! BufRead,BufNewFile *.mro		setfiletype martian
@@ -21,6 +22,13 @@ autocmd FileType martian set ts=4 | set sw=4 | set expandtab
 " FixWhite
 command FW :%s/\s\+$//e
 command HW :/\s\+$
+
+function! BuildExec()
+	let base = expand('%:p:t:r')
+	exec ':make -j20 '.base
+endfunction
+
+command B call BuildExec()
 
 set statusline+=%F
 

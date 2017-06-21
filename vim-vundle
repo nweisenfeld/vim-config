@@ -20,6 +20,7 @@ Plugin 'davidoc/taskpaper.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_root_markers=['Makefile']
+let g:ctrlp_lazy_update=200
 
 Plugin 'vim-scripts/OmniCppComplete'
 Plugin 'xolox/vim-misc'
@@ -60,15 +61,17 @@ Plugin 'tpope/vim-sleuth'       " infers tab settings
 Plugin 'vim-airline/vim-airline'
 set laststatus=2    " always show airline
 Plugin 'vim-airline/vim-airline-themes'
-
-let g:airline_section_x = 'ts %{&tabstop} sw %{&shiftwidth}'
-
+let g:airline_powerline_fonts = 1
+let g:airline_section_x = '%.3n %{fugitive#statusline()} ts %{&tabstop}/%{&shiftwidth}'
 
 Plugin 'MattesGroeger/vim-bookmarks'
 let g:bookmark_sign = '>>'
 let g:bookmark_annotation_sign = '##'
 let g:bookmark_location_list = 1
 let g:bookmark_disable_ctrlp = 1
+let g:bookmark_highlight_lines = 1
+let g:bookmark_location_list = 1
+let g:bookmark_manage_per_buffer = 0
 nmap  bjj           <Plug>BookmarkMoveDown
 nmap  bkk           <Plug>BookmarkMoveUp
 nmap  bx            <Plug>BookmarkClearAll
@@ -78,6 +81,9 @@ nmap  bn            <Plug>BookmarkNext
 nmap  bi            <Plug>BookmarkAnnotate
 nmap  bm            <Plug>BookmarkToggle
 nmap  ba            <Plug>BookmarkShowAll
+
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

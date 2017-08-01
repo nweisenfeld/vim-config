@@ -84,6 +84,7 @@ nmap  ba            <Plug>BookmarkShowAll
 
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'rust-lang/rust.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

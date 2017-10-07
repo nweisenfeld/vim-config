@@ -6,6 +6,9 @@ source ~/.vim/vim-vundle
 set background=dark
 colorscheme wombat256mod
 " dj compatibility ;-)
+if has("autocmd")
+	  filetype plugin indent on
+endif
 autocmd FileType rust compiler cargo 
 autocmd FileType rust setl makeprg=make
 autocmd FileType rust SyntasticCheck off

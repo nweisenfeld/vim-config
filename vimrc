@@ -12,7 +12,7 @@ endif
 autocmd FileType rust compiler cargo 
 autocmd FileType rust setl makeprg=make
 autocmd FileType rust SyntasticCheck off
-autocmd FileType cpp set ts=5 | set sw=5 | set expandtab | set makeprg=crdMake
+autocmd FileType cpp set ts=5 | set sw=5 | set expandtab | set makeprg=cbuild
 autocmd FileType python set ts=4 | set sw=4 | set expandtab
 augroup filetypedetect
 	au! BufRead,BufNewFile *.mro		setfiletype martian

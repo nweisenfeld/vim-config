@@ -56,6 +56,8 @@ let g:syntastic_cpp_compiler_options = '-std=c++11 -Wno-deprecated'
 "let g:syntastic_debug = 1
 "let g:syntastic_c_compiler_options = '-std=c++11 -Isrc/'
 
+let g:syntastic_rust_checkers = ['cargo']
+
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'tpope/vim-sleuth'       " infers tab settings
@@ -87,6 +89,8 @@ nmap  ba            <Plug>BookmarkShowAll
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'rust-lang/rust.vim'
+
+Plugin 'racer-rust/vim-racer'
 Plugin 'godlygeek/tabular'
 
 " The following are examples of different formats supported.

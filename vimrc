@@ -1,3 +1,4 @@
+set incsearch
 set encoding=utf-8
 set nocompatible 
 set ruler
